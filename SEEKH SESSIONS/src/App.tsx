@@ -95,18 +95,18 @@ export default function App() {
               <div>
                 <h2 className="text-2xl font-bold text-white mb-2">Upcoming Sessions</h2>
               </div>
-              <Button
-                onClick={() => {
-                  console.log('Refresh button clicked');
-                  fetchSessions();
-                }}
-                disabled={loading}
-                variant="outline"
-                className="bg-gray-800 border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10"
-              >
-                <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
-                Refresh ({sessions.length})
-              </Button>
+//              <Button
+//                onClick={() => {
+//                  console.log('Refresh button clicked');
+//                  fetchSessions();
+//                }}
+//                disabled={loading}
+//                variant="outline"
+//                className="bg-gray-800 border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10"
+//              >
+//                <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+//                Refresh ({sessions.length})
+//              </Button>
             </div>
             
             {/* Description and note - same for both mobile and desktop */}
