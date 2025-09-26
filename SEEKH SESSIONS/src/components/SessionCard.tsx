@@ -110,9 +110,9 @@ export function SessionCard({ session }: SessionCardProps) {
           {/* Topic */}
           <h4 className="text-xl font-bold text-yellow-500 mb-2">{session.topic}</h4>
           
-          {/* Description - Mobile: Full width, 2 lines max */}
+          {/* Description - Mobile: Full width */}
           {session.description && (
-            <p className="text-gray-300 mb-4 leading-relaxed line-clamp-2">{session.description}</p>
+            <p className="text-gray-300 mb-4 leading-relaxed">{session.description}</p>
           )}
 
           {/* Date and Time */}
