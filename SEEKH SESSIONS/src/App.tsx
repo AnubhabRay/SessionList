@@ -72,24 +72,48 @@ export default function App() {
       {/* Sessions List */}
       <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-6 md:mb-8 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold text-white mb-2">Upcoming Sessions</h2>
-              <p className="text-gray-400 text-sm md:text-base">Click "Join Session" to participate in live sessions</p>
+          <div className="mb-6 md:mb-8">
+            {/* Mobile Layout - Refresh button beside title */}
+            <div className="flex md:hidden justify-between items-start mb-2">
+              <h2 className="text-xl font-bold text-white">Upcoming Sessions</h2>
+              <Button
+                onClick={() => {
+                  console.log('Refresh button clicked');
+                  fetchSessions();
+                }}
+                disabled={loading}
+                variant="outline"
+                size="sm"
+                className="bg-gray-800 border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10 ml-2"
+              >
+                <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+              </Button>
             </div>
-            <Button
-              onClick={() => {
-                console.log('Refresh button clicked');
-                fetchSessions();
-              }}
-              disabled={loading}
-              variant="outline"
-              className="bg-gray-800 border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10 self-start md:self-auto"
-            >
-              <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
-              <span className="hidden md:inline">Refresh ({sessions.length})</span>
-              <span className="md:hidden">Refresh</span>
-            </Button>
+            
+            {/* Desktop Layout - Original side-by-side */}
+            <div className="hidden md:flex md:justify-between md:items-center">
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-2">Upcoming Sessions</h2>
+              </div>
+              <Button
+                onClick={() => {
+                  console.log('Refresh button clicked');
+                  fetchSessions();
+                }}
+                disabled={loading}
+                variant="outline"
+                className="bg-gray-800 border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10"
+              >
+                <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+                Refresh ({sessions.length})
+              </Button>
+            </div>
+            
+            {/* Description and note - same for both mobile and desktop */}
+            <div className="mt-2">
+              <p className="text-gray-400 text-sm md:text-base">Click "Join Session" to participate in live sessions</p>
+              <p className="text-yellow-400/80 text-xs md:text-sm mt-1 italic">Links will be active 15 mins prior to a session.</p>
+            </div>
           </div>
           
           {error && (
