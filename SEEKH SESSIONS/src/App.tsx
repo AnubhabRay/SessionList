@@ -76,7 +76,7 @@ export default function App() {
             {/* Mobile Layout - Refresh button beside title */}
             <div className="flex md:hidden justify-between items-start mb-2">
               <h2 className="text-xl font-bold text-white">Upcoming Sessions</h2>
-              <Button
+          {/*<Button
                 onClick={() => {
                   console.log('Refresh button clicked');
                   fetchSessions();
@@ -87,7 +87,7 @@ export default function App() {
                 className="bg-gray-800 border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10 ml-2"
               >
                 <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-              </Button>
+          </Button> */}
             </div>
             
             {/* Desktop Layout - Original side-by-side */}
